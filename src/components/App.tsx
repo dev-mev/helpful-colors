@@ -2,7 +2,7 @@ import React from "react";
 import LeftSidebar from "./LeftSidebar";
 import SwatchContainer from "./SwatchContainer";
 import Pagination from "./Pagination";
-import { History } from 'history';
+import { History } from "history";
 
 interface Props {
   history: History;
@@ -36,10 +36,13 @@ class App extends React.Component<Props, {}> {
     { color: "purple", hex: "#6A1B9A" }
   ];
 
-  updateCurrentPage = (event: { preventDefault: () => void; }, pageNumber: number) => {
+  updateCurrentPage = (
+    event: { preventDefault: () => void },
+    pageNumber: number
+  ) => {
     event.preventDefault();
-    this.setState({currentPage: pageNumber})
-  }
+    this.setState({ currentPage: pageNumber });
+  };
 
   render() {
     return (
@@ -59,7 +62,7 @@ class App extends React.Component<Props, {}> {
           updateCurrentPage={this.updateCurrentPage}
         />
       </div>
-    )
+    );
   }
 }
 
