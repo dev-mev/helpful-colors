@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Source Serif Pro', serif;
+}
+
+#root {
+  height: 100%;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 10px 30px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: #363C3C;
+  border: 1px solid #363C3C;
+  background-color: white;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.app {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 75px auto 100px;
+}
+
+.header {
+  background-color: #363C3C;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  -webkit-box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
+  -moz-box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
+  box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
+  background-image: url("../images/hh_logo.png");
+  background-repeat: no-repeat;
+  background-position: 20px 50%;
+
+}
+
+/* sidebar */
+.sidebar {
+  background-color: #D6D8D8;
+  grid-column: 1;
+  height: 100%;
+  grid-row: 2 / span 3;
+  border: .5px solid #ADADAD;
+  -webkit-box-shadow: 0px 2px 4px 0px rgb(191, 190, 190);
+  -moz-box-shadow: 0px 2px 4px 0px rgb(191, 190, 190);
+  box-shadow: 0px 2px 4px 0px rgb(191, 190, 190);
+}
+
+.sidebar-colors {
+  list-style-type: none;
+}
+
+.sidebar-colors li {
+  margin: 10px 0;
+}
+
+.sidebar-colors li a {
+  text-decoration: none;
+  color: #363C3C;
+}
+
+/* swatches */
+.swatch-container {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.swatch {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  padding: 0;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
+  -moz-box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
+  box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
+  border: none;
+  border: .5px solid white;
+}
+
+.swatch:hover {
+  cursor: pointer;
+}
+
+.swatch.swatch-detail {
+  width: 90%;
+  height: 500px;
+  display: block;
+  margin: auto;
+}
+
+.color-block {
+  width: 100%;
+  height: 80%;
+  border-radius: 5px 5px 0 0;
+}
+
+.color-label {
+  height: 20%;
+  text-align: left;
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  line-height: 41px;
+  padding-left: 15px;
+}
+
+/* pagination */
+.pagination {
+  list-style-type: none;
+  margin: auto;
+  grid-row: 3;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.page-number {
+  margin: 0 10px;
+}
+
+.page-link {
+  text-decoration: none;
+  color: #363C3C;
+}
