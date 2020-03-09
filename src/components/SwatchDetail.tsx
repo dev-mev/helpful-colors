@@ -2,7 +2,7 @@ import React from "react";
 import LeftSidebar from "./LeftSidebar";
 import { useParams } from "react-router-dom";
 
-function SwatchDetail(props: any) {
+function SwatchDetail(props: any): JSX.Element {
   const { hex } = useParams();
 
   return (
@@ -18,7 +18,7 @@ function SwatchDetail(props: any) {
       </div>
       <button
         className="button back-button"
-        onClick={() => {
+        onClick={(): void => {
           props.history.push("/");
         }}
       >

@@ -12,7 +12,7 @@ class Swatch extends React.Component<Props, {}> {
     this.props.history.push(`/swatches/${route}`);
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <button className="swatch" onClick={this.goToSwatchDetail}>
         <div

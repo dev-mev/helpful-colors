@@ -62,7 +62,7 @@ body {
   margin: 10px 0;
 }
 
-.sidebar-colors li a {
+.sidebar-colors li a, .random-button a {
   text-decoration: none;
   color: #363C3C;
 }

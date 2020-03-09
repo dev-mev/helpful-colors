@@ -24,7 +24,7 @@ class Pagination extends React.Component<Props, {}> {
     return pageNumbers;
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <ul className="pagination">
         {this.getPageNumbers().map(number => (

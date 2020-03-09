@@ -1,25 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import colorFamilies from "../data/colorFamilies.json";
 
 class LeftSidebar extends React.Component {
-  // getRandomColor = () => {
+  generateRandomColor = (): string => {
+    return colorFamilies[Math.floor(Math.random() * colorFamilies.length)];
+  };
 
-  // }
-
-  render() {
+  render(): JSX.Element {
     return (
       <div className="sidebar">
-        <button className="button random-button">Random Color</button>
+        <button className="button random-button">
+          <Link to={"/colors/" + this.generateRandomColor()}>Random Color</Link>
+        </button>
         <ul className="sidebar-colors">
-          <li>
-            <Link to="/colors/red">Red</Link>
-          </li>
-          <li>
-            <Link to="/colors/yellow">Yellow</Link>
-          </li>
-          <li>
-            <Link to="/colors/purple">Purple</Link>
-          </li>
+          {colorFamilies.map(color => (
+            <li key={color}>
+              <Link to={"/colors/" + color}>{color}</Link>
+            </li>
+          ))}
         </ul>
       </div>
     );

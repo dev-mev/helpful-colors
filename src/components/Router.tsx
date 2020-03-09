@@ -4,7 +4,7 @@ import App from "./App";
 import SwatchDetail from "./SwatchDetail";
 import NotFound from "./NotFound";
 
-const Router = () => (
+const Router = (): JSX.Element => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={App} />

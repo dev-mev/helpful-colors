@@ -3,10 +3,15 @@ import LeftSidebar from "./LeftSidebar";
 import SwatchContainer from "./SwatchContainer";
 import Pagination from "./Pagination";
 import { History } from "history";
+import { generateColorList } from "../utils/colors";
 
 interface Props {
   history: History;
-  match: any;
+  match: {
+    params: {
+      color: string;
+    };
+  };
 }
 
 class App extends React.Component<Props, {}> {
@@ -15,36 +20,17 @@ class App extends React.Component<Props, {}> {
     swatchesPerPage: 12
   };
 
-  colors = [
-    { color: "red", hex: "#C70039" },
-    { color: "yellow", hex: "#FFC300" },
-    { color: "purple", hex: "#581845" },
-    { color: "red", hex: "#C0392B" },
-    { color: "yellow", hex: "#D4AC0D" },
-    { color: "purple", hex: "#633974 " },
-    { color: "red", hex: "#641E16" },
-    { color: "yellow", hex: "#7D6608" },
-    { color: "purple", hex: "#4A235A" },
-    { color: "red", hex: "#F9EBEA" },
-    { color: "yellow", hex: "#FCF3CF" },
-    { color: "purple", hex: "#F4ECF7" },
-    { color: "red", hex: "#F44336" },
-    { color: "yellow", hex: "#FFF176" },
-    { color: "purple", hex: "#673AB7" },
-    { color: "red", hex: "#C62828" },
-    { color: "yellow", hex: "#F9A825" },
-    { color: "purple", hex: "#6A1B9A" }
-  ];
+  colors = generateColorList();
 
   updateCurrentPage = (
     event: { preventDefault: () => void },
     pageNumber: number
-  ) => {
+  ): void => {
     event.preventDefault();
     this.setState({ currentPage: pageNumber });
   };
 
-  render() {
+  render(): JSX.Element {
     return (
       <div className="app">
         <header className="header"></header>

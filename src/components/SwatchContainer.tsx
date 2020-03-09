@@ -3,15 +3,19 @@ import Swatch from "./Swatch";
 import { History } from "history";
 
 interface Props {
-  colors: { color: string; hex: string }[];
+  colors: { hex: string; colorFamily: string }[];
   history: History;
-  match: any;
+  match: {
+    params: {
+      color: string;
+    };
+  };
   swatchesPerPage: number;
   currentPage: number;
 }
 
 class SwatchContainer extends React.Component<Props, {}> {
-  render() {
+  render(): JSX.Element {
     const indexOfLastPost = this.props.currentPage * this.props.swatchesPerPage;
     const indexOfFirstPost = indexOfLastPost - this.props.swatchesPerPage;
     const currentSwatches = this.props.colors.slice(
@@ -21,7 +25,7 @@ class SwatchContainer extends React.Component<Props, {}> {
 
     const renderSwatches = this.props.match.params.color
       ? currentSwatches.map(color => {
-          if (this.props.match.params.color === color.color) {
+          if (this.props.match.params.color === color.colorFamily) {
             return (
               <Swatch
                 key={color.hex}
