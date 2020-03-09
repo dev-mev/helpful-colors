@@ -1,8 +1,13 @@
 import React from "react";
 import LeftSidebar from "./LeftSidebar";
 import { useParams } from "react-router-dom";
+import { History } from "history";
 
-function SwatchDetail(props: any): JSX.Element {
+interface Props {
+  history: History;
+}
+
+function SwatchDetail(props: Props): JSX.Element {
   const { hex } = useParams();
 
   return (

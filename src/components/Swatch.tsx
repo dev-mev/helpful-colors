@@ -7,7 +7,7 @@ interface Props {
 }
 
 class Swatch extends React.Component<Props, {}> {
-  goToSwatchDetail = (event: { preventDefault: () => void }) => {
+  goToSwatchDetail = (): void => {
     const route = this.props.hex.replace("#", "");
     this.props.history.push(`/swatches/${route}`);
   };

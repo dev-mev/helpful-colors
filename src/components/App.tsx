@@ -1,9 +1,9 @@
 import React from "react";
 import LeftSidebar from "./LeftSidebar";
 import SwatchContainer from "./SwatchContainer";
-import Pagination from "./Pagination";
 import { History } from "history";
-import { generateColorList } from "../utils/colors";
+import { generateColorList } from "../utils/colorHelpers";
+import logo from "../images/hh_logo.png";
 
 interface Props {
   history: History;
@@ -33,7 +33,11 @@ class App extends React.Component<Props, {}> {
   render(): JSX.Element {
     return (
       <div className="app">
-        <header className="header"></header>
+        <header className="header">
+          <a className="home-link" href="/">
+            <img src={logo} alt=""></img>
+          </a>
+        </header>
         <LeftSidebar />
         <SwatchContainer
           colors={this.colors}
@@ -41,10 +45,6 @@ class App extends React.Component<Props, {}> {
           match={this.props.match}
           swatchesPerPage={this.swatchesPerPage}
           currentPage={this.state.currentPage}
-        />
-        <Pagination
-          swatchesPerPage={this.swatchesPerPage}
-          totalSwatches={this.colors.length}
           updateCurrentPage={this.updateCurrentPage}
         />
       </div>

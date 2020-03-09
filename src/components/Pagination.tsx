@@ -30,7 +30,9 @@ class Pagination extends React.Component<Props, {}> {
         {this.getPageNumbers().map(number => (
           <li key={number} className="page-number">
             <a
-              onClick={event => this.props.updateCurrentPage(event, number)}
+              onClick={(event): void =>
+                this.props.updateCurrentPage(event, number)
+              }
               href="!#"
               className="page-link"
             >

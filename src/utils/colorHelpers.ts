@@ -1,31 +1,33 @@
-export function findColorFamily(hue: number) {
-  if (hue > 300 || hue < 10) {
+export function findColorFamily(hue: number): string {
+  if (hue >= 300 || hue < 10) {
     return "red";
-  } else if (hue > 10 && hue < 40) {
+  } else if (hue >= 10 && hue < 40) {
     return "orange";
-  } else if (hue > 40 && hue < 65) {
+  } else if (hue >= 40 && hue < 65) {
     return "yellow";
-  } else if (hue > 65 && hue < 175) {
+  } else if (hue >= 65 && hue < 175) {
     return "green";
-  } else if (hue > 175 && hue < 260) {
+  } else if (hue >= 175 && hue < 260) {
     return "blue";
-  } else if (hue > 260 && hue < 300) {
+  } else {
     return "purple";
   }
 }
 
-export function getHueFromHex(hex: string) {
+export function getHueFromHex(hex: string): string {
   // convert hex to RGB
-  let r: any, g: any, b: any;
+  let r = 0,
+    g = 0,
+    b = 0;
 
   if (hex.length === 4) {
-    r = "0x" + hex[1] + hex[1];
-    g = "0x" + hex[2] + hex[2];
-    b = "0x" + hex[3] + hex[3];
+    r = parseInt("0x" + hex[1] + hex[1]);
+    g = parseInt("0x" + hex[2] + hex[2]);
+    b = parseInt("0x" + hex[3] + hex[3]);
   } else if (hex.length === 7) {
-    r = "0x" + hex[1] + hex[2];
-    g = "0x" + hex[3] + hex[4];
-    b = "0x" + hex[5] + hex[6];
+    r = parseInt("0x" + hex[1] + hex[2]);
+    g = parseInt("0x" + hex[3] + hex[4]);
+    b = parseInt("0x" + hex[5] + hex[6]);
   }
 
   // partial conversion to HSL to get hue
@@ -63,11 +65,10 @@ export function generateHex(): string {
   return hex;
 }
 
-export function generateColorList(): { hex: string; colorFamily: any }[] {
+export function generateColorList(): { hex: string; colorFamily: string }[] {
   const colors = [];
-  let i = 1;
 
-  while (i <= 100) {
+  for (let i = 0; i <= 200; i++) {
     const hex = generateHex();
     const colorFam = getHueFromHex(hex);
 

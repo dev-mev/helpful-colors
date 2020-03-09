@@ -20,6 +20,7 @@ body {
   font-family: 'Source Serif Pro', serif;
   font-weight: 700;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .app {
@@ -36,10 +37,11 @@ body {
   -webkit-box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
   -moz-box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
   box-shadow: 0px 0px 4px 0px rgb(191, 190, 190);
-  background-image: url("../images/hh_logo.png");
-  background-repeat: no-repeat;
-  background-position: 20px 50%;
+}
 
+.home-link {
+  display: block;
+  margin: 11px 20px;
 }
 
 /* sidebar */
@@ -69,11 +71,19 @@ body {
 
 /* swatches */
 .swatch-container {
-  display: flex;
-  grid-column: 2;
-  grid-row: 2;
-  flex-wrap: wrap;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 73%;
+  grid-template-rows: auto 100px;
   justify-content: center;
+}
+
+.swatches {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
 .swatch {
@@ -119,7 +129,7 @@ body {
 .pagination {
   list-style-type: none;
   margin: auto;
-  grid-row: 3;
+  grid-row: 2;
 }
 
 .pagination li {
