@@ -16,34 +16,21 @@ interface Props {
 
 class SwatchContainer extends React.Component<Props, {}> {
   render(): JSX.Element {
+    const filterBy = this.props.match.params.color
+      ? this.props.colors.filter(
+          color => this.props.match.params.color === color.colorFamily
+        )
+      : this.props.colors;
+
+    let renderSwatches = filterBy.map(color => {
+      return (
+        <Swatch key={color.hex} hex={color.hex} history={this.props.history} />
+      );
+    });
+
     const indexOfLastPost = this.props.currentPage * this.props.swatchesPerPage;
     const indexOfFirstPost = indexOfLastPost - this.props.swatchesPerPage;
-    const currentSwatches = this.props.colors.slice(
-      indexOfFirstPost,
-      indexOfLastPost
-    );
-
-    const renderSwatches = this.props.match.params.color
-      ? currentSwatches.map(color => {
-          if (this.props.match.params.color === color.colorFamily) {
-            return (
-              <Swatch
-                key={color.hex}
-                hex={color.hex}
-                history={this.props.history}
-              />
-            );
-          }
-        })
-      : currentSwatches.map(color => {
-          return (
-            <Swatch
-              key={color.hex}
-              hex={color.hex}
-              history={this.props.history}
-            />
-          );
-        });
+    renderSwatches = renderSwatches.slice(indexOfFirstPost, indexOfLastPost);
 
     return <div className="swatch-container">{renderSwatches}</div>;
   }

@@ -16,10 +16,10 @@ interface Props {
 
 class App extends React.Component<Props, {}> {
   state = {
-    currentPage: 1,
-    swatchesPerPage: 12
+    currentPage: 1
   };
 
+  swatchesPerPage = 12;
   colors = generateColorList();
 
   updateCurrentPage = (
@@ -39,11 +39,11 @@ class App extends React.Component<Props, {}> {
           colors={this.colors}
           history={this.props.history}
           match={this.props.match}
-          swatchesPerPage={this.state.swatchesPerPage}
+          swatchesPerPage={this.swatchesPerPage}
           currentPage={this.state.currentPage}
         />
         <Pagination
-          swatchesPerPage={this.state.swatchesPerPage}
+          swatchesPerPage={this.swatchesPerPage}
           totalSwatches={this.colors.length}
           updateCurrentPage={this.updateCurrentPage}
         />
